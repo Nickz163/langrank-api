@@ -1,9 +1,13 @@
 package com.langrank.langrankapi;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+
+@Document
 public class LanguageData {
 
     @Id
@@ -11,6 +15,7 @@ public class LanguageData {
 
     private String name;
     private String source;
+
     private Map<String, Double> data = new LinkedHashMap<>();
 
     public LanguageData() {
@@ -22,22 +27,12 @@ public class LanguageData {
         id = (sourceName + name).toLowerCase(); // todo: temporary solution
     }
 
-    public void setData(Map<String, Double> data) {
-        this.data = data;
-    }
-
-    public LanguageData appendData(String date, Double value) {
-        data.put(date, value);
-        return this;
-    }
-
-    public LanguageData appendData(String date, String value) {
-        data.put(date, Double.parseDouble(value));
-        return this;
-    }
-
     public String getName() {
         return name;
+    }
+
+    public String getSource() {
+        return source;
     }
 
     public Map<String, Double> getData() {
