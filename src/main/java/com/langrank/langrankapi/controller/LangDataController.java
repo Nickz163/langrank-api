@@ -1,5 +1,7 @@
-package com.langrank.langrankapi;
+package com.langrank.langrankapi.controller;
 
+import com.langrank.langrankapi.model.LanguageData;
+import com.langrank.langrankapi.repository.LanguageDataCustomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,8 +14,12 @@ import java.util.Map;
 @RequestMapping("/data")
 public class LangDataController {
 
+    private final LanguageDataCustomRepository languageDataCustomRepository;
+
     @Autowired
-    LanguageDataCustomRepository languageDataCustomRepository;
+    public LangDataController(LanguageDataCustomRepository languageDataCustomRepository) {
+        this.languageDataCustomRepository = languageDataCustomRepository;
+    }
 
     @RequestMapping(value = "/dataset", params = {"name", "source"})
     public Map<String, Double> getLanguageDataSet(@RequestParam(value = "name", required = false) String name,

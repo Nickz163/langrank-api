@@ -1,4 +1,6 @@
-package com.langrank.langrankapi;
+package com.langrank.langrankapi.repository;
+
+import com.langrank.langrankapi.model.LanguageData;
 
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.langrank.langrankapi;
+package com.langrank.langrankapi.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

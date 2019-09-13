@@ -1,5 +1,6 @@
-package com.langrank.langrankapi;
+package com.langrank.langrankapi.repository;
 
+import com.langrank.langrankapi.model.LanguageData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -13,7 +14,7 @@ import java.util.stream.Collectors;
 @Repository
 public class LanguageDataCustomRepositoryImpl implements LanguageDataCustomRepository {
 
-    final MongoTemplate mongoTemplate;
+    private final MongoTemplate mongoTemplate;
 
     @Autowired
     public LanguageDataCustomRepositoryImpl(MongoTemplate mongoTemplate) {
